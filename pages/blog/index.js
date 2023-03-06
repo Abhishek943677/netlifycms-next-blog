@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
 import Blogpostcard from "../../components/Blogpostcard";
 import Slider from "react-slick";
@@ -10,12 +10,13 @@ import PaginationModal from "../../components/Pagination";
 export default function Blog(props) {
   const { sorted, noOfPageForPagination ,UserBlogPage} = props;
 
+  // console.log(sorted)
   const slickSetting = {
     dots: true,
     autoplay: true,
     speed: 1700,
   };
-
+  
   return (
     <React.Fragment>
 
@@ -34,7 +35,7 @@ export default function Blog(props) {
       {sorted.length === 0 && <div className=""><h1 className="m-6 text-center font-medium">Post Unavailable</h1></div>}
 
       <PaginationModal noOfPageForPagination={noOfPageForPagination} currentPage={UserBlogPage}/>
-      
+
     </React.Fragment>
   );
 }

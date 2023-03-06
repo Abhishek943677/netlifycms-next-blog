@@ -99,7 +99,7 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <nav className="border-red-800 border flex flex-row justify-between flex-wrap sticky top-0 z-50 backdrop-brightness-75 h-12">
+      <nav className=" flex flex-row justify-between flex-wrap sticky top-0 z-50 backdrop-brightness-75 h-12">
         <img
           src="/img/1200px-whio_blue_duck_at_staglands_akatarawa_new_zealand.jpg"
           alt="this is alt"
@@ -141,7 +141,7 @@ const Layout = ({ children }) => {
             renderSearchList()}
         </div>
 
-        <div className="mx-10 border-red-800 border">
+        <div className="mx-10 ">
           <Link href={"/"} className="mx-4 px-3 py-2">
             home
           </Link>

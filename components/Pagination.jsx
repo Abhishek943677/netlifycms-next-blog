@@ -4,11 +4,12 @@ import Stack from "@mui/material/Stack";
 import {useRouter } from "next/router";
 
 export default function PaginationModal({noOfPageForPagination,currentPage}) {
-  const router = useRouter()
+  const router = useRouter();
   const handleChange = (event, value) => {
-    // console.log(router)
-    router.push(`blog?page=${value}`,undefined,{shallow:false})
+    // router.push(`blog?page=${value}`);
+    window.location.href = `blog?page=${value}`
   };
+  
   return (
     <Stack spacing={6}>
       <div className="flex w-11/12 m-auto p-4 justify-center">
