@@ -1,54 +1,55 @@
-import React, { Component } from 'react';
+import React from "react";
+import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
+import Blogpostcard from "../../components/Blogpostcard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import BlogPostSliderCard from "../../components/BlogPostSliderCard";
+import PaginationModal from "../../components/Pagination";
 
-import Link from 'next/link';
-
-const BLOG_POSTS_PATH = '../../content/blogPosts';
-
-const importBlogPosts = async () => {
-  // https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
-  // second flag in require.context function is if subdirectories should be searched
-  const markdownFiles = require
-    .context('../../content/blogPosts', false, /\.md$/)
-    .keys()
-    .map(relativePath => relativePath.substring(2));
-  return Promise.all(
-    markdownFiles.map(async path => {
-      const markdown = await import(`../../content/blogPosts/${path}`);
-      return { ...markdown, slug: path.substring(0, path.length - 3) };
-    })
-  );
-};
-
-export default class Blog extends Component {
-  static async getInitialProps() {
-    const postsList = await importBlogPosts();
-
-    return { postsList };
-  }
-  render() {
-    const { postsList } = this.props;
-    return (
-      <div className="blog-list">
-        {postsList.map(post => {
-          return (
-            <Link href={`blog/post/${post.slug}`} key={post.attributes.title}>
-                <img src={post.attributes.thumbnail} />
-                <h2>{post.attributes.title}</h2>
-            </Link>
-          );
+export default function Blog(props) {
+  const { sorted, noOfPageForPagination ,UserBlogPage} = props;
+  const slickSetting = {
+    dots: true,
+    autoplay: true,
+    speed: 1700,
+  };
+  return (
+    <React.Fragment>
+      <Slider {...slickSetting} className="m-auto w-2/3">
+        {sorted.slice(0, 3).map((post) => {
+          return <BlogPostSliderCard post={post}/>;
         })}
-        <style jsx>{`
-          .blog-list a {
-            display: block;
-            text-align: center;
-          }
-          .blog-list img {
-            max-width: 100%;
-
-            max-height: 300px;
-          }
-        `}</style>
+      </Slider>
+      <div className="flex flex-row flex-wrap justify-center ">
+        {sorted.slice(3).map((post) => {
+          return <Blogpostcard post={post} />;
+        })}
       </div>
-    );
-  }
+      {sorted.length === 0 && <div className=""><h1 className="m-6 text-center font-medium">Post Unavailable</h1></div>}
+
+      <PaginationModal noOfPageForPagination={noOfPageForPagination} currentPage={UserBlogPage}/>
+      {/* pagintion */}
+    </React.Fragment>
+  );
 }
+
+Blog.getInitialProps = async (context) => {
+  const postsList = await importBlogPostsWithContent();
+
+ const UserBlogPage = context.query.page;
+
+  const sorted = postsList.sort(
+    (a, b) =>
+      a.attributes.date.slice(0, 10).replaceAll("-", "") -
+      b.attributes.date.slice(0, 10).replaceAll("-", "")
+  );
+
+  const noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
+  const start = (UserBlogPage - 1) * 9;
+  const end = UserBlogPage * 9;
+
+ const pagination = sorted.slice(start, end);
+
+  return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
+};

@@ -29,6 +29,7 @@ module.exports = {
     return configuration;
   },
   async exportPathMap(defaultPathMap) {
+    // console.log(getPathsForPosts())
     return {
       ...defaultPathMap,
       ...getPathsForPosts(),
