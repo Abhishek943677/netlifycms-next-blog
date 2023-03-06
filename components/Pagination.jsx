@@ -1,10 +1,13 @@
 import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import {useRouter } from "next/router";
 
 export default function PaginationModal({noOfPageForPagination,currentPage}) {
+  const router = useRouter()
   const handleChange = (event, value) => {
-    window.location.href = `blog?page=${value}`;
+    // console.log(router)
+    router.push(`blog?page=${value}`,undefined,{shallow:false})
   };
   return (
     <Stack spacing={6}>

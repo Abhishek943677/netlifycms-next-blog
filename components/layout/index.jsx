@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
         {list.map(({ attributes, slug }) => {
           if(window.location.pathname.includes("blog/post")){
             return (
-              <div className="static">
+              <div className="static" key={attributes.date}>
                 <Link href={slug} key={attributes.title} >
                   <p className=" p-1 m-1 bg-white">{attributes.title}</p>
                 </Link>
@@ -66,7 +66,7 @@ const Layout = ({ children }) => {
             );
           }else{
             return (
-              <div className="static">
+              <div className="static" key={attributes.date}>
                 <Link href={`blog/post/${slug}`} key={attributes.title}>
                   <p className=" p-1 m-1 bg-white">{attributes.title}</p>
                 </Link>
