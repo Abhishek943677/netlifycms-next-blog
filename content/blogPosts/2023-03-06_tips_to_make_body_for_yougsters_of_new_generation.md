@@ -1,7 +1,7 @@
 ---
 title: Tips to make body for yougsters of new generation
 date: 1980-02-12T17:32:06.369Z
-thumbnail: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4f78YxJzurLsDTRr0Xx26wHaD4%26pid%3DApi&f=1&ipt=b03a7949a74300cf7b56c254f96aaef99c12c06a432cd54bc24f2b1417409037&ipo=images
+thumbnail: https://images.pexels.com/photos/1431283/pexels-photo-1431283.jpeg?auto=compress&cs=tinysrgb&w=600
 ---
 <!--StartFragment-->
 
