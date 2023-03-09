@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import ShareIcon from '@mui/icons-material/Share';
 import React from "react";
+import Image from "next/image";
 
 export default function Products() {
   const product = [
@@ -20,7 +21,7 @@ export default function Products() {
       <Box className="flex flex-row flex-wrap w-3/4 m-auto">
         {product.map((p, i) => (
           <div className="flex justify-center flex-col m-auto" data-aos="zoom-in-up"
-          data-aos-duration="500">
+          data-aos-duration="500" key={i}>
             <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 m-4 w-96">
               <a href="#!" data-te-ripple-init data-te-ripple-color="light">
                 <img

@@ -9,6 +9,7 @@ import Products from "../components/Products";
 import TypeIt from "typeit-react";
 import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
+import Image from "next/image";
 
 export default function Home() {
   const { attributes, html } = content;
@@ -26,19 +27,20 @@ export default function Home() {
             <img
               src="https://plus.unsplash.com/premium_photo-1666184891921-2be4f78ce4ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
               className="rounded-md"
-            ></img>{" "}
+            />
           </div>
           <div>
             <img
               src="https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvYmxlbSUyMHNvbHZpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
               className="rounded-md"
-            ></img>
+            />
           </div>
           <div>
             <img
               src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              className="rounded-md"
-            ></img>
+              className="rounded-md w-fit"
+              
+            />
           </div>
         </Slider>
         <Paper elevation={3} className=" m-auto p-4 w-2/4 justify-center flex-col bg-white left-auto border border-emerald-700 z-50">

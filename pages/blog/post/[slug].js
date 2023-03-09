@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import React, { Component } from 'react';
-import Scrolltotop from '../../../components/partials/Scrolltotop';
 
 class Post extends Component {
   static async getInitialProps({ query }) {
