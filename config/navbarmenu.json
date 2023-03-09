@@ -1,0 +1,17 @@
+{
+    "menu":[
+        {
+            "path":"/" ,
+            "name":"Home"
+        },
+        {
+            "path":"/blog?page=1",
+            "name":"Blog"
+        },
+        {
+            "path":"/about",
+            "name":"About"
+        }
+
+    ]
+}

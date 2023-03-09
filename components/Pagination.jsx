@@ -11,9 +11,9 @@ export default function PaginationModal({noOfPageForPagination,currentPage}) {
   };
   
   return (
-    <Stack spacing={6}>
-      <div className="flex w-11/12 m-auto p-4 justify-center">
-        <Pagination count={noOfPageForPagination} onChange={handleChange} shape="rounded" page={Number(currentPage)} size="large"/>
+    <Stack spacing={2}>
+      <div className="flex  m-auto py-4 justify-center">
+        <Pagination count={noOfPageForPagination} onChange={handleChange} shape="rounded" page={Number(currentPage)} size="medium"/>
       </div>
     </Stack>
   );

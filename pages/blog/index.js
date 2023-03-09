@@ -20,13 +20,13 @@ export default function Blog(props) {
   return (
     <React.Fragment>
 
-      <Slider {...slickSetting} className="m-auto w-2/3">
+      <Slider {...slickSetting} className="m-auto w-1/2">
         {sorted.slice(0, 3).map((post) => {
           return <BlogPostSliderCard post={post} key={post.attributes.date}/>;
         })}
       </Slider>
 
-      <div className="flex flex-row flex-wrap justify-center ">
+      <div className="flex flex-row flex-wrap justify-center mx-auto my-6">
         {sorted.slice(3).map((post) => {
           return <Blogpostcard post={post} key={post.attributes.date}/>;
         })}

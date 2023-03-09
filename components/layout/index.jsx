@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+
+import { BiAlignMiddle } from "react-icons/bi";
 import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
+import Logo from "../partials/Logo";
+import ComputerNav from "../partials/ComputerNav";
+import MobileNav from "../partials/MobileNav";
+import SearchResultDropdown from "../partials/SearchResultDropdown";
+import { TextField } from "@mui/material";
+import Footer from "../Footer";
+import Scrolltotop from "../partials/Scrolltotop";
 
 const Layout = ({ children }) => {
   const [searchData, setSearchData] = useState([]);
+  const [showNav, setShowNav] = useState(false);
+  const [makeblur, setMakeblur] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showSearchResultModal, setShowSearchResultModal] = useState(false);
@@ -31,12 +42,12 @@ const Layout = ({ children }) => {
         document.getElementById("error-msg").style.display = "none";
       }
     });
-  }, [searchResult]);
-  
-// runsearch function
+  }, [searchResult,showSearchResultModal,setShowSearchResultModal]);
+
+  // runsearch function
   const runSearch = (value) => {
     if (value.length === 0) return false;
-    var condition = new RegExp(value.trim());
+    var condition = new RegExp(String(value.trim()));
 
     setSearchParamFromTitle(
       searchData.filter((el) => condition.test(el.attributes.title))
@@ -49,69 +60,39 @@ const Layout = ({ children }) => {
     }
   };
 
-  const DropDown = ({ list }) => {
-    return (
-      <div
-        className="flex  m-auto flex-col  absolute top-14 bg-slate-200 w-80 overflow-y-scroll h-96"
-        id="dropmenu"
-      >
-        {list.map(({ attributes, slug }) => {
-          if(window.location.pathname.includes("blog/post")){
-            return (
-              <div className="static" key={attributes.date}>
-                <Link href={slug} key={attributes.title} >
-                  <p className=" p-1 m-1 bg-white">{attributes.title}</p>
-                </Link>
-              </div>
-            );
-          }else{
-            return (
-              <div className="static" key={attributes.date}>
-                <Link href={`blog/post/${slug}`} key={attributes.title}>
-                  <p className=" p-1 m-1 bg-white">{attributes.title}</p>
-                </Link>
-              </div>
-            );
-          }
-        })}
-      </div>
-    );
-  };
-
   // render search list
   const renderSearchList = () => {
     if (serachParamFromTitle.length !== 0) {
-      return <DropDown list={serachParamFromTitle} />;
+      return <SearchResultDropdown list={serachParamFromTitle.slice(0,7)} />;
     }
 
     if (serachParamFromHtml.length !== 0) {
-      return <DropDown list={serachParamFromHtml} />;
+      return <SearchResultDropdown list={serachParamFromHtml.slice(0,7)} />;
     } else
       return (
         <div
-          className=" border m-auto flex-col absolute top-14 bg-slate-200 w-80  h-fit p-3"
+          className="flex  m-auto flex-col  relative top-[7px] w-full h-14 z-50 align-middle text-center bg-red-500"
           id="error-msg"
         >
-          please search with valid terms
+          <p>sorry , we don't have that data</p>
         </div>
       );
-  };
+      };
 
   return (
-    <React.Fragment>
-      <nav className=" flex flex-row justify-between flex-wrap sticky top-0 z-50 backdrop-brightness-75 h-12">
-        <img
-          src="/img/1200px-whio_blue_duck_at_staglands_akatarawa_new_zealand.jpg"
-          alt="this is alt"
-          className="w-10 h-10 mx-10 "
-        />
-        <div className="w-fit " id="dropdown">
-          <input
+    <div >
+      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[98vw]">
+        <div className="flex w-[98vw] justify-between flex-shrink">
+        <Logo />
+        <div className="w-fit" id="dropdown">
+          <TextField
+          variant="standard"
+          placeholder="please search"
             type="search"
             name="searchTerm"
             id="searchTerm"
             value={searchTerm}
-            className=" rounded h-10 w-80 px-4"
+            className=" rounded h-10 px-4 lg:w-[40rem] sm:w-64 md:w-80"
             onChange={(e) => {
               setSearchTerm(e.target.value);
               runSearch(e.target.value);
@@ -129,33 +110,37 @@ const Layout = ({ children }) => {
             }}
             onFocus={() => {
               setShowSearchResultModal(true);
+              setMakeblur(true)
               function name() {
                 document.getElementById("error-msg").style.display = "";
               }
               document.getElementById("error-msg") !== null && name();
             }}
+            onBlur={()=>setMakeblur(false)}
           />
-
+          {/* search result modal */}
           {showSearchResultModal &&
             searchTerm.length !== 0 &&
             renderSearchList()}
         </div>
+        
+          <BiAlignMiddle
+            className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
+            onClick={() => setShowNav((prev) => !prev)}
+          />
 
-        <div className="mx-10 ">
-          <Link href={"/"} className="mx-4 px-3 py-2">
-            home
-          </Link>
-          <Link href={"/blog?page=1"} className="mx-4 px-3 py-2">
-            blog
-          </Link>
-          <Link href={"/about"} className="mx-4 px-3 py-2">
-            about
-          </Link>
+        <ComputerNav />
+        </div>
+        <div>
+          {/* for mobile navigation */}
+      {!showNav ? null : <MobileNav />}
         </div>
       </nav>
 
-      <main className="flex flex-col">{children}</main>
-    </React.Fragment>
+{makeblur ? <main className="flex flex-col blur-xl"  >{children}</main> : <main className="flex flex-col scroll-smooth"  >{children}</main>}
+<Scrolltotop />
+<Footer />
+    </div>
   );
 };
 

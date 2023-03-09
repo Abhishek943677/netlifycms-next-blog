@@ -4,11 +4,11 @@ import React from "react";
 export default function BlogPostSliderCard({ post }) {
 
   return (
-    <div>
+    <div className="flex justify-center">
       <Link href={`blog/post/${post.slug}`} key={post.attributes.title}>
-        <h2 className=" w-fit text-center">{post.attributes.title}</h2>
+        <h2 className=" w-fit">{post.attributes.title.slice(0,50)}.....</h2>
         <p>{post.attributes.date.slice(0,10)}</p>
-        <img src={post.attributes.thumbnail} alt="An image" className="" />
+        <img src={post.attributes.thumbnail} alt="An image" className="m-auto rounded-md" />
       </Link>
     </div>
   );
