@@ -9,8 +9,8 @@ export default function Blogpostcard({ post }) {
       elevation={4}
       // variant='outlined'
       className="lg:w-1/3 md:w-1/2 sm:w-1/2 m-2 p-1 justify-between flex flex-col"
-      data-aos="zoom-in-up"
-      data-aos-duration="500"
+      // data-aos="zoom-in-up"
+      // data-aos-duration="500"
     >
       <Link href={`blog/post/${post.slug}`} key={post.attributes.title}>
         <div className="group flex text-center relative overflow-hidden rounded-md cursor-pointer">

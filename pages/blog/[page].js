@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
+import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
 import Blogpostcard from "../../components/Blogpostcard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -63,32 +63,33 @@ export default function Blog(props) {
 // };
 export async function getServerSideProps(context) {
   const UserBlogPage = context.query.page;
-  // var noOfPageForPagination;
-  // try {
-  //   const postsList = await importBlogPostsWithContent();
+  var pagination;
+  var noOfPageForPagination;
+  try {
+    const postsList = await importBlogPostsWithContent();
 
-  //   console.log(UserBlogPage);
-  //   const sorted = postsList.sort(
-  //     (a, b) =>
-  //       a.attributes.date.slice(0, 10).replaceAll("-", "") -
-  //       b.attributes.date.slice(0, 10).replaceAll("-", "")
-  //   );
+    console.log(UserBlogPage);
+    const sorted = postsList.sort(
+      (a, b) =>
+        a.attributes.date.slice(0, 10).replaceAll("-", "") -
+        b.attributes.date.slice(0, 10).replaceAll("-", "")
+    );
 
-  //    noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
-  //   const start = (UserBlogPage - 1) * 9;
-  //   const end = UserBlogPage * 9;
+     noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
+    const start = (UserBlogPage - 1) * 9;
+    const end = UserBlogPage * 9;
 
-  //   const pagination = sorted.slice(start, end);
-  //   console.log(pagination);
-  // } catch (error) {
-  //   pagination=[];
-  //   noOfPageForPagination=5
-  // }
+     pagination = sorted.slice(start, end);
+    // console.log(pagination);
+  } catch (error) {
+    pagination=[];
+    noOfPageForPagination=5
+  }
 
   return {
     props: {
-      sorted: [],
-      noOfPageForPagination:5,
+      sorted: pagination,
+      noOfPageForPagination,
       UserBlogPage,
     },
   };
