@@ -12,7 +12,7 @@ export default function Blogpostcard({ post }) {
       // data-aos="zoom-in-up"
       // data-aos-duration="500"
     >
-      <Link href={`blog/post/${post.slug}`} key={post.attributes.title}>
+      <Link href={`post/${post.slug}`} key={post.attributes.title}>
         <div className="group flex text-center relative overflow-hidden rounded-md cursor-pointer">
           <Image
             width={500}
