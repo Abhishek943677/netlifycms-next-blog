@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
           className="flex  m-auto flex-col  relative top-[7px] w-full h-14 z-50 align-middle text-center bg-red-500"
           id="error-msg"
         >
-          <p>sorry , we don't have that data</p>
+          <p>{`sorry data is not available`}</p>
         </div>
       );
       };
