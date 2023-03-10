@@ -8,62 +8,47 @@ import BlogPostSliderCard from "../../components/BlogPostSliderCard";
 import PaginationModal from "../../components/Pagination";
 
 export default function Blog(props) {
-  const { sorted, noOfPageForPagination ,UserBlogPage} = props;
+  const { sorted, noOfPageForPagination, UserBlogPage } = props;
 
   const slickSetting = {
     dots: true,
     autoplay: true,
     speed: 1700,
   };
-  
+
   return (
     <React.Fragment>
-
       <Slider {...slickSetting} className="m-auto w-1/2">
         {sorted.slice(0, 3).map((post) => {
-          return <BlogPostSliderCard post={post} key={post.attributes.date}/>;
+          return <BlogPostSliderCard post={post} key={post.attributes.date} />;
         })}
       </Slider>
 
       <div className="flex flex-row flex-wrap justify-center mx-auto my-6">
         {sorted.slice(3).map((post) => {
-          return <Blogpostcard post={post} key={post.attributes.date}/>;
+          return <Blogpostcard post={post} key={post.attributes.date} />;
         })}
       </div>
 
-      {sorted.length === 0 && <div className=""><h1 className="m-6 text-center font-medium">Post Unavailable</h1></div>}
+      {sorted.length === 0 && (
+        <div className="">
+          <h1 className="m-6 text-center font-medium">Post Unavailable</h1>
+        </div>
+      )}
 
-      <PaginationModal noOfPageForPagination={noOfPageForPagination} currentPage={UserBlogPage}/>
-
+      <PaginationModal
+        noOfPageForPagination={noOfPageForPagination}
+        currentPage={UserBlogPage}
+      />
     </React.Fragment>
   );
 }
 
-Blog.getInitialProps = async (context) => {
-  const postsList = await importBlogPostsWithContent();
- const UserBlogPage = Number(context.query.page);
-console.log(UserBlogPage)
-  const sorted = postsList.sort(
-    (a, b) =>
-      a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
-  );
-
-  const noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
-  const start = (UserBlogPage - 1) * 9;
-  const end = UserBlogPage * 9;
-
- const pagination = sorted.slice(start, end);
-
-  return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
-};
-// export async function getServerSideProps({req,res,resolvedUrl}) {
-
-//  const postsList = await importBlogPostsWithContent();
-//  console.log("hiii")
-// //  console.log(resolvedUrl.slice(11))
-//  const UserBlogPage =resolvedUrl.slice(11)
-
-//  const sorted = postsList.sort(
+// Blog.getInitialProps = async (context) => {
+//   const postsList = await importBlogPostsWithContent();
+//  const UserBlogPage = Number(context.query.page);
+// console.log(UserBlogPage)
+//   const sorted = postsList.sort(
 //     (a, b) =>
 //       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
 //   );
@@ -74,5 +59,38 @@ console.log(UserBlogPage)
 
 //  const pagination = sorted.slice(start, end);
 
-//   return { props: {postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage}};
-// }
+//   return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
+// };
+export async function getServerSideProps(context) {
+  const UserBlogPage = context.query.page;
+  var noOfPageForPagination;
+  try {
+    const postsList = await importBlogPostsWithContent();
+
+    console.log(UserBlogPage);
+    const sorted = postsList.sort(
+      (a, b) =>
+        a.attributes.date.slice(0, 10).replaceAll("-", "") -
+        b.attributes.date.slice(0, 10).replaceAll("-", "")
+    );
+
+     noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
+    const start = (UserBlogPage - 1) * 9;
+    const end = UserBlogPage * 9;
+
+    const pagination = sorted.slice(start, end);
+    console.log(pagination);
+  } catch (error) {
+    pagination=[];
+    noOfPageForPagination=5
+  }
+
+  return {
+    props: {
+      postsList,
+      sorted: pagination,
+      noOfPageForPagination,
+      UserBlogPage,
+    },
+  };
+}

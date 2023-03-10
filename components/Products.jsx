@@ -18,7 +18,7 @@ export default function Products() {
   return (
     <div>
       <p className="m-auto text-center text-2xl">Products</p>
-      <Box className="flex flex-row flex-wrap lg:w-3/4 sm:w-fit m-auto">
+      <Box className="flex flex-row flex-wrap lg:w-3/4 sm:w-80 m-auto">
         {product.map((p, i) => (
           <div className="flex justify-center flex-col m-auto" data-aos="zoom-in-up"
           data-aos-duration="500" key={i}>
