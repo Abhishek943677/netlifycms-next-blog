@@ -32,7 +32,7 @@ export default function Blog(props) {
 
       {sorted.length === 0 && (
         <div className="">
-          <h1 className="m-6 text-center font-medium">Post Unavailable</h1>
+          <h1 className="m-6 text-center font-medium">{`Post unavailable ${UserBlogPage}`}</h1>
         </div>
       )}
 
@@ -63,33 +63,32 @@ export default function Blog(props) {
 // };
 export async function getServerSideProps(context) {
   const UserBlogPage = context.query.page;
-  var noOfPageForPagination;
-  try {
-    const postsList = await importBlogPostsWithContent();
+  // var noOfPageForPagination;
+  // try {
+  //   const postsList = await importBlogPostsWithContent();
 
-    console.log(UserBlogPage);
-    const sorted = postsList.sort(
-      (a, b) =>
-        a.attributes.date.slice(0, 10).replaceAll("-", "") -
-        b.attributes.date.slice(0, 10).replaceAll("-", "")
-    );
+  //   console.log(UserBlogPage);
+  //   const sorted = postsList.sort(
+  //     (a, b) =>
+  //       a.attributes.date.slice(0, 10).replaceAll("-", "") -
+  //       b.attributes.date.slice(0, 10).replaceAll("-", "")
+  //   );
 
-     noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
-    const start = (UserBlogPage - 1) * 9;
-    const end = UserBlogPage * 9;
+  //    noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
+  //   const start = (UserBlogPage - 1) * 9;
+  //   const end = UserBlogPage * 9;
 
-    const pagination = sorted.slice(start, end);
-    console.log(pagination);
-  } catch (error) {
-    pagination=[];
-    noOfPageForPagination=5
-  }
+  //   const pagination = sorted.slice(start, end);
+  //   console.log(pagination);
+  // } catch (error) {
+  //   pagination=[];
+  //   noOfPageForPagination=5
+  // }
 
   return {
     props: {
-      postsList,
-      sorted: pagination,
-      noOfPageForPagination,
+      sorted: [],
+      noOfPageForPagination:5,
       UserBlogPage,
     },
   };

@@ -5,7 +5,7 @@
             "name":"Home"
         },
         {
-            "path":"/blog?page=1",
+            "path":"/blog/1",
             "name":"Blog"
         },
         {
