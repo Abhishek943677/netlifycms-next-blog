@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
+// import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
 import Blogpostcard from "../../components/Blogpostcard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
