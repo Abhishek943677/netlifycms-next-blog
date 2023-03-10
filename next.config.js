@@ -21,6 +21,22 @@ const getPathsForPosts = () => {
 };
 
 module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'external-content.duckduckgo.com**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
   webpack: configuration => {
     configuration.module.rules.push({
       test: /\.md$/,

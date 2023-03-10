@@ -81,8 +81,8 @@ const Layout = ({ children }) => {
 
   return (
     <div >
-      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[98vw]">
-        <div className="flex w-[98vw] justify-between flex-shrink">
+      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[100vw]">
+        <div className="flex w-[100vw] justify-between flex-shrink">
         <Logo />
         <div className="w-fit" id="dropdown">
           <TextField
@@ -137,7 +137,7 @@ const Layout = ({ children }) => {
         </div>
       </nav>
 
-{makeblur ? <main className="flex flex-col blur-xl"  >{children}</main> : <main className="flex flex-col scroll-smooth"  >{children}</main>}
+{makeblur ? <main className="flex flex-col blur-xl "  >{children}</main> : <main className="flex flex-col scroll-smooth flex-wrap"  >{children}</main>}
 <Scrolltotop />
 <Footer />
     </div>

@@ -23,13 +23,13 @@ console.log(html)
           <div className='flex justify-between top-0'>
             <div className='flex'>
               <p className='mx-3'>Author</p>
-              <p className='mx-3'>created at : 02/09/2002</p>
+              <p className='mx-3'>{`created at : 02/09/2002`}</p>
             </div>
             <div>
               <p className='mx-3'>1 min read</p>
             </div>
           </div>
-          <img src={thumbnail} className="rounded-md w-full m-auto"/>
+          <Image width={500}   height={500} src={thumbnail} className="rounded-md w-full m-auto"/>
           
           <div dangerouslySetInnerHTML={{ __html: html }} className="my-6 " id='articles'/>
         </article>

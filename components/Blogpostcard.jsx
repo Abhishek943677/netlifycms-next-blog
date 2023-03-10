@@ -14,7 +14,8 @@ export default function Blogpostcard({post}) {
     >
       <Link href={`blog/post/${post.slug}`} key={post.attributes.title}>
       <div className="group flex text-center relative overflow-hidden rounded-md cursor-pointer">
-        <img
+        <Image
+        width={500}   height={500}
           src={post.attributes.thumbnail}
           alt="An image"
           className="rounded-md object-cover ease-in-out duration-500 group-hover:rotate-4 group-hover:scale-125 w-full"
