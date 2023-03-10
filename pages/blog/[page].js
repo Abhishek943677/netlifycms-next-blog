@@ -39,31 +39,11 @@ export default function Blog(props) {
   );
 }
 
-// Blog.getInitialProps = async (context) => {
-//   const postsList = await importBlogPostsWithContent();
-//  const UserBlogPage = Number(context.query.page);
-// // console.log(UserBlogPage)
-//   const sorted = postsList.sort(
-//     (a, b) =>
-//       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
-//   );
-
-//   const noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
-//   const start = (UserBlogPage - 1) * 9;
-//   const end = UserBlogPage * 9;
-
-//  const pagination = sorted.slice(start, end);
-
-//   return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
-// };
-export async function getServerSideProps({req,res,resolvedUrl}) {
-
- const postsList = await importBlogPostsWithContent();
- console.log("hiii")
-//  console.log(resolvedUrl.slice(11))
- const UserBlogPage =resolvedUrl.slice(11)
-
- const sorted = postsList.sort(
+Blog.getInitialProps = async (context) => {
+  const postsList = await importBlogPostsWithContent();
+ const UserBlogPage = Number(context.query.page);
+console.log(UserBlogPage)
+  const sorted = postsList.sort(
     (a, b) =>
       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
   );
@@ -74,5 +54,25 @@ export async function getServerSideProps({req,res,resolvedUrl}) {
 
  const pagination = sorted.slice(start, end);
 
-  return { props: {postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage}};
-}
+  return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
+};
+// export async function getServerSideProps({req,res,resolvedUrl}) {
+
+//  const postsList = await importBlogPostsWithContent();
+//  console.log("hiii")
+// //  console.log(resolvedUrl.slice(11))
+//  const UserBlogPage =resolvedUrl.slice(11)
+
+//  const sorted = postsList.sort(
+//     (a, b) =>
+//       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
+//   );
+
+//   const noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
+//   const start = (UserBlogPage - 1) * 9;
+//   const end = UserBlogPage * 9;
+
+//  const pagination = sorted.slice(start, end);
+
+//   return { props: {postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage}};
+// }
