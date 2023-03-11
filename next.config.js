@@ -21,6 +21,7 @@ const getPathsForPosts = () => {
 };
 
 module.exports = {
+  distDir: 'build',
   // loader: "akamai",
   // path: "",
   images: {
