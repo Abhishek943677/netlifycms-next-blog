@@ -81,8 +81,8 @@ const Layout = ({ children }) => {
 
   return (
     <div >
-      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[100vw]">
-        <div className="flex w-[100vw] justify-between flex-shrink">
+      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[100vw] max-[419px]:w-[30rem] max-[164px]:w-[30rem]">
+        <div className="flex justify-between flex-shrink">
         <Logo />
         <div className="w-fit" id="dropdown">
           <TextField

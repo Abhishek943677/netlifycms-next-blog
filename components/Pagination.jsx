@@ -6,8 +6,8 @@ import {useRouter } from "next/router";
 export default function PaginationModal({noOfPageForPagination,currentPage}) {
   const router = useRouter();
   const handleChange = (event, value) => {
-    // router.push(`blog?page=${value}`);
-    window.location.href = `${value}`
+    window.location.href = `${encodeURIComponent(value)}`
+    console.log(value)
   };
   
   return (

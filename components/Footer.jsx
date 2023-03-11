@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <Paper 
     elevation={3}
-    class="text-center text-white rounded-md drop-shadow-2xl w-full">
-  <div class="container pt-9">
+    class="text-center text-white rounded-md drop-shadow-2xl w-full max-[419px]:w-[30rem] ">
+  <div class="container pt-9 ">
     <div class="mb-9 flex justify-center">
       <a href="#!" class="mr-9 text-neutral-800 ">
         <svg
@@ -74,7 +74,7 @@ export default function Footer() {
   </div>
 
   <div
-    class="bg-neutral-200 p-4 text-center text-neutral-700">
+    class="bg-neutral-200 p-4 text-center text-neutral-700 max-[419px]:w-[30rem]">
     © 2023 Copyright :
     <a
       class="text-neutral-800"

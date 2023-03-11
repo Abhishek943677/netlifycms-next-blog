@@ -1,14 +1,14 @@
-const fs = require('fs');
-const blogPostsFolder = './content/blogPosts';
+const fs = require("fs");
+const blogPostsFolder = "./content/blogPosts";
 
 const getPathsForPosts = () => {
   return fs
     .readdirSync(blogPostsFolder)
-    .map(blogName => {
+    .map((blogName) => {
       const trimmedName = blogName.substring(0, blogName.length - 3);
       return {
         [`/blog/post/${trimmedName}`]: {
-          page: '/blog/post/[slug]',
+          page: "/blog/post/[slug]",
           query: {
             slug: trimmedName,
           },
@@ -21,26 +21,29 @@ const getPathsForPosts = () => {
 };
 
 module.exports = {
+  // loader: "akamai",
+  // path: "",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'external-content.duckduckgo.com**',
+        protocol: "https",
+        hostname: "external-content.duckduckgo.com**",
       },
       {
-        protocol: 'https',
-        hostname: 'images.pexels.com**',
+        protocol: "https",
+        hostname: "images.pexels.com**",
       },
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
-  webpack: configuration => {
+  webpack: (configuration) => {
     configuration.module.rules.push({
       test: /\.md$/,
-      use: 'frontmatter-markdown-loader',
+      use: "frontmatter-markdown-loader",
     });
     return configuration;
   },

@@ -23,16 +23,16 @@ export default function Home() {
     <div className="p-0 ">
       <div className="flex w-[100vw] m-auto justify-center align-middle flex-wrap">
         {/* one */}
-        <Slider {...slickSetting} className="z-10 w-[40rem] m-auto h-fit mb-4 flex-wrap"> {/*this will change slider setting also change clasname of image of slider*/}
+        <Slider {...slickSetting} className="z-10 lg:w-[40rem] m-auto h-fit mb-4 flex-wrap sm:w-fit"> {/*this will change slider setting also change clasname of image of slider*/}
           <div>
             <Image
               height={300}
               width={600}
               src="https://plus.unsplash.com/premium_photo-1666184891921-2be4f78ce4ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              className="rounded-md m-auto mx-auto"
+              className="rounded-md"
             />
           </div>
-          <div>
+          {/* <div>
             <Image
               height={300}
               width={600}
@@ -48,12 +48,12 @@ export default function Home() {
               // className="rounded-md m-auto sm:w-96 h-80 lg:w-[70vw]"
               className="rounded-md m-auto mx-auto"
             />
-          </div>
+          </div> */}
         </Slider>
         {/* two */}
         <Box
           elevation={1}
-          className=" justify-center flex-col bg-white z-50 w-[20rem] mx-auto my-4 p-4"
+          className=" justify-center flex-col bg-white w-[20rem] mx-auto my-4 p-4"
         >
           <svg viewbox="0 0 100 20">
             <defs>

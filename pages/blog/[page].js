@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
 import Blogpostcard from "../../components/Blogpostcard";
 import Slider from "react-slick";
@@ -32,7 +32,7 @@ export default function Blog(props) {
 
       {sorted.length === 0 && (
         <div className="">
-          <h1 className="m-6 text-center font-medium">{`Post unavailable ${UserBlogPage}`}</h1>
+          <h1 className="m-6 text-center font-medium">{`Post unavailable at page ${UserBlogPage}`}</h1>
         </div>
       )}
 
@@ -47,7 +47,7 @@ export default function Blog(props) {
 // Blog.getInitialProps = async (context) => {
 //   const postsList = await importBlogPostsWithContent();
 //  const UserBlogPage = Number(context.query.page);
-// console.log(UserBlogPage)
+ 
 //   const sorted = postsList.sort(
 //     (a, b) =>
 //       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
@@ -61,14 +61,33 @@ export default function Blog(props) {
 
 //   return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
 // };
-export async function getServerSideProps(context) {
-  const UserBlogPage = context.query.page;
+
+export async function getStaticPaths() {
+  const postsList = await importBlogPostsWithContent();
+  var path =[];
+
+for (let i = 1 ; i <  Math.floor(postsList.length / 9 + 2); i++) {
+path =[...path,{params:{page:String(i)}}]  
+};
+// console.log(path);
+  return {
+    paths: path,
+  fallback: false,
+  }
+}
+
+
+
+
+export async function getStaticProps(context) {
+  console.log(context)
+  const UserBlogPage = context.params.page;
   var pagination;
   var noOfPageForPagination;
   try {
     const postsList = await importBlogPostsWithContent();
 
-    console.log(UserBlogPage);
+    // console.log(UserBlogPage);
     const sorted = postsList.sort(
       (a, b) =>
         a.attributes.date.slice(0, 10).replaceAll("-", "") -
