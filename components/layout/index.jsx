@@ -78,13 +78,13 @@ const Layout = ({ children }) => {
         </div>
       );
       };
-
+      // max-[419px]:w-[27.5rem]
   return (
     <div >
-      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[100vw] max-[419px]:w-[30rem] max-[164px]:w-[30rem]">
+      <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-16 shadow-md rounded-md z-50 w-[100vw] max-[419px]:w-[27.5rem]">
         <div className="flex justify-between flex-shrink">
         <Logo />
-        <div className="w-fit" id="dropdown">
+        <div className="sm:w-[400px] lg:w-fit" id="dropdown">
           <TextField
           variant="standard"
           placeholder="please search"
@@ -92,7 +92,7 @@ const Layout = ({ children }) => {
             name="searchTerm"
             id="searchTerm"
             value={searchTerm}
-            className=" rounded h-10 px-4 lg:w-[40rem] sm:w-64 md:w-80"
+            className=" rounded h-10 px-4 w-full mx-4 lg:w-[40rem] sm:w-full"
             onChange={(e) => {
               setSearchTerm(e.target.value);
               runSearch(e.target.value);
@@ -137,7 +137,7 @@ const Layout = ({ children }) => {
         </div>
       </nav>
 
-{makeblur ? <main className="flex flex-col blur-xl "  >{children}</main> : <main className="flex flex-col scroll-smooth flex-wrap"  >{children}</main>}
+{makeblur ? <main className=" blur-xl flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem]"  >{children}</main> : <main className="flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem]"  >{children}</main>}
 <Scrolltotop />
 <Footer />
     </div>

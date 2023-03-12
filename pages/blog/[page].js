@@ -17,12 +17,14 @@ export default function Blog(props) {
   };
 
   return (
-    <React.Fragment>
-      <Slider {...slickSetting} className="m-auto w-1/2">
+    <div>
+      <div className=" mx-auto lg:w-2/4 sm:w-2/3">
+      <Slider {...slickSetting} className="mx-auto w-full">
         {sorted.slice(0, 3).map((post) => {
           return <BlogPostSliderCard post={post} key={post.attributes.date} />;
         })}
       </Slider>
+      </div>
 
       <div className="flex flex-row flex-wrap justify-center mx-auto my-6">
         {sorted.slice(3).map((post) => {
@@ -40,27 +42,10 @@ export default function Blog(props) {
         noOfPageForPagination={noOfPageForPagination}
         currentPage={UserBlogPage}
       />
-    </React.Fragment>
+    </div>
   );
 }
 
-// Blog.getInitialProps = async (context) => {
-//   const postsList = await importBlogPostsWithContent();
-//  const UserBlogPage = Number(context.query.page);
- 
-//   const sorted = postsList.sort(
-//     (a, b) =>
-//       a.attributes.date.slice(0, 10).replaceAll("-", "") - b.attributes.date.slice(0, 10).replaceAll("-", "")
-//   );
-
-//   const noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
-//   const start = (UserBlogPage - 1) * 9;
-//   const end = UserBlogPage * 9;
-
-//  const pagination = sorted.slice(start, end);
-
-//   return { postsList, sorted: pagination, noOfPageForPagination ,UserBlogPage};
-// };
 
 export async function getStaticPaths() {
   const postsList = await importBlogPostsWithContent();

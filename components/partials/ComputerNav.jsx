@@ -9,9 +9,9 @@ import main  from "../../config/navbarmenu.json"
 export default function ComputerNav() {
 
   return (
-    <div className="mx-10 lg:flex-row lg:block hidden flex-wrap">
+    <div className=" lg:flex-row lg:block hidden w-72 mr-2 h-fit" >
       {main.menu.map(({name,path})=>
-        <Link href={path} className="mx-4 p-2 text-lg" key={name}>
+        <Link href={path} className="p-2 text-lg" key={name}>
             <Button >{name}</Button>
           </Link>
       )}

@@ -1,0 +1,27 @@
+[debug] [2023-03-11T16:49:19.980Z] ----------------------------------------------------------------------
+[debug] [2023-03-11T16:49:19.982Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-03-11T16:49:19.983Z] CLI Version:   11.24.1
+[debug] [2023-03-11T16:49:19.983Z] Platform:      win32
+[debug] [2023-03-11T16:49:19.983Z] Node Version:  v18.14.0
+[debug] [2023-03-11T16:49:19.984Z] Time:          Sat Mar 11 2023 22:19:19 GMT+0530 (India Standard Time)
+[debug] [2023-03-11T16:49:19.984Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-11T16:49:20.056Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-11T16:49:20.056Z] > authorizing via signed-in user (ak4838960@gmail.com)
+[debug] [2023-03-11T16:49:20.056Z] [iam] checking project strong-charge-339607 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-11T16:49:20.058Z] > refreshing access token with scopes: []
+[debug] [2023-03-11T16:49:20.060Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-03-11T16:49:20.060Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-11T16:49:21.455Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-03-11T16:49:21.455Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-11T16:49:21.473Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/strong-charge-339607:testIamPermissions [none]
+[debug] [2023-03-11T16:49:21.473Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/strong-charge-339607:testIamPermissions x-goog-quota-user=projects/strong-charge-339607
+[debug] [2023-03-11T16:49:21.474Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/strong-charge-339607:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-11T17:04:48.811Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/strong-charge-339607:testIamPermissions
+[debug] [2023-03-11T17:04:48.815Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/strong-charge-339607 [none]
+[debug] [2023-03-11T17:04:48.849Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/strong-charge-339607
+[debug] [2023-03-11T17:04:48.874Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/strong-charge-339607
+    at RetryOperation._fn (C:\Users\Hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:242:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project strong-charge-339607. Please make sure the project exists and your account has permission to access it.

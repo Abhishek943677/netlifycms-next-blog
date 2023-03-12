@@ -4,7 +4,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 export default function Scrolltotop() {
   useEffect(() => {
     let mybutton = document.getElementById("btn-back-to-top");
-    console.log(mybutton)
+    // console.log(mybutton)
     window.onscroll = function () {
       scrollFunction();
     };

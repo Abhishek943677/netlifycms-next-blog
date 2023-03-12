@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 export default function Post({ blogpost }) {
-  // console.log(JSON.parse(blogpost))
+  console.log(JSON.parse(blogpost))
   if (!blogpost) return <div>not found</div>;
   const {
     html,
@@ -59,7 +59,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // console.log(context.params.slug);
+  console.log(context.params.slug);
   const blogpost = await import(
     `../../../content/blogPosts/${context.params.slug}.md`
   ).catch((error) => null);
