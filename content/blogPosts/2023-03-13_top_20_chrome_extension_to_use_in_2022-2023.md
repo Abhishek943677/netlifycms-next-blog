@@ -6,7 +6,7 @@ thumbnail: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.b
 ---
 ## T﻿op chrome extension to use in 2022-2023
 
-1. Grammarly - Grammarly is a writing assistant that checks for grammar and spelling mistakes in real-time as you type..
+1. Grammarly - Grammarly is a writing assistant that checks for grammar and spelling mistakes in real-time as you type.<br/><br/><br/>
 
 ![momentum](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.iinOroCBTCP1ibxBz4QAiQHaCT%26pid%3DApi&f=1&ipt=f234583ddeacb458157c9fbe908c5c73aa3836c2b736dc9bab79706935e78c55&ipo=images "momentum")
 
@@ -19,3 +19,17 @@ thumbnail: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.b
 4﻿.   Pocket - Pocket is a bookmarking extension that allows you to save articles, videos, and other content to read or watch later.
 
 5﻿. Honey - Honey is a shopping extension that helps you save money by automatically applying coupon codes and finding the best deals on products.
+
+<h1>Heading level 1</h1>
+
+<p>This is the first line<br/><br/><br/>
+And this is the second line.</p>
+
+> h﻿ii it is amazing life .\
+> Honey is a shopping extension that is.
+
+<!--StartFragment-->
+
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.iinOroCBTCP1ibxBz4QAiQHaCT%26pid%3DApi&f=1&ipt=f234583ddeacb458157c9fbe908c5c73aa3836c2b736dc9bab79706935e78c55&ipo=images" height="100" weight="300" />
+
+<!--EndFragment-->
