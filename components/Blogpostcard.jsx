@@ -1,7 +1,8 @@
-import { Card, Paper } from "@mui/material";
+import { Button, Card, Paper } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ShareIcon from '@mui/icons-material/Share';
 
 export default function Blogpostcard({ post }) {
   return (
@@ -27,10 +28,11 @@ export default function Blogpostcard({ post }) {
           {post.attributes.title.slice(0, 100)} ......
         </p>
       </Link>
-      <div className="flex justify-between m-1">
-        <p className="text-sm">{post.attributes.date.slice(0, 10)}</p>
-        <button
-          className="mx-3 text-base"
+      <div className="flex justify-between ">
+        <p className="text-sm my-auto mx-2">{post.attributes.date.slice(0, 10)}</p>
+        <Button
+        // variant="outlined"
+          className="mx-1"
           onClick={async () => {
             const shareData = {
               title: "Blog.solity.fun",
@@ -39,13 +41,14 @@ export default function Blogpostcard({ post }) {
             };
             try {
               await navigator.share(shareData);
+              // console.log("clicked")
             } catch (err) {
               console.log(err);
             }
           }}
         >
-          share
-        </button>
+            <ShareIcon className=" h-8 w-8"/>
+        </Button>
       </div>
     </Paper>
   );

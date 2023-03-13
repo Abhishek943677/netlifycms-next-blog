@@ -5,7 +5,7 @@ import React from "react";
 export default function BlogPostSliderCard({ post }) {
 
   return (
-    <div className="flex justify-center border border-red-800">
+    <div className="flex justify-center">
       <Link href={`post/${post.slug}`} key={post.attributes.title}>
         <div>
         <h2 className=" w-fit">{post.attributes.title.slice(0,50)} sun.</h2>

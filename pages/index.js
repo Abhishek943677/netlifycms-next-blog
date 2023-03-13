@@ -8,7 +8,7 @@ import Aboutme from "../components/aboutme";
 import Products from "../components/Products";
 import TypeIt from "typeit-react";
 import { Box } from "@mui/system";
-import { Paper } from "@mui/material";
+import { Button, Link, Paper } from "@mui/material";
 import Image from "next/image";
 
 export default function Home() {
@@ -45,22 +45,31 @@ export default function Home() {
               className="rounded-md w-fit mx-auto"
             />
           </div>
-          {/* <div>
+          <div>
             <Image
               height={300}
               width={600}
               src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              // className="rounded-md m-auto sm:w-96 h-80 lg:w-[70vw]"
-              className="rounded-md"
+              className="rounded-md w-fit mx-auto"
             />
-          </div> */}
+          </div>
         </Slider>
         {/* two */}
         <Box
           elevation={1}
           className=" justify-center flex-col bg-white w-[20rem] mx-auto my-4 p-4"
         >
-          <p className="text-2xl text">Welcome to Solity</p>
+          <p className="text-2xl text px-1">Welcome to Solity</p>
+          <div>
+            <Link href="/blog/1" className="w-fit no-underline">
+              <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 my-3 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0 text-lg">
+                  Explore Blogs
+                </span>
+              </button>
+            </Link>
+          </div>
+
           <TypeIt
             className="p-0 text-blue-600 text-sm"
             options={{
@@ -68,7 +77,7 @@ export default function Home() {
                 "We help people learn new and smart things easily, By providing clear, practical advice and examples to become more effective problem solvers.",
               ],
               speed: 100,
-              waitUntilVisible: true,
+              waitUntilVisible: false,
             }}
           />
           <div />

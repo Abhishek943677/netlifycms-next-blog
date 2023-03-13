@@ -11,7 +11,7 @@ export default function Post({ blogpost }) {
 
   return (
     <>
-      <article className="flex justify-center flex-col lg:w-2/3 sm:w-5/6">
+      <article className="flex justify-center flex-col lg:w-2/3 sm:w-5/6 max-[639px]:px-4">
         <p className="text-center font-normal text-2xl m-2">{title}</p>
         <div className="flex justify-between top-0">
           <div className="flex">

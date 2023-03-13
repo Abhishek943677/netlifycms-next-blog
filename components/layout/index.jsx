@@ -94,7 +94,7 @@ const Layout = ({ children }) => {
             value={searchTerm}
             className=" rounded h-10 px-4 w-full mx-4 lg:w-[40rem] sm:w-full"
             onChange={(e) => {
-              setSearchTerm(e.target.value);
+              setSearchTerm(e.target.value.toLocaleLowerCase());
               runSearch(e.target.value);
               if (e.target.value.length === 0) {
                 setSearchParamFromHtml([]);
@@ -137,7 +137,7 @@ const Layout = ({ children }) => {
         </div>
       </nav>
 
-{makeblur ? <main className=" blur-xl flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem]"  >{children}</main> : <main className="flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem]"  >{children}</main>}
+{makeblur ? <main className=" blur-xl flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem] "  >{children}</main> : <main className="flex flex-col scroll-smooth mx-auto max-[419px]:w-[27.5rem]"  >{children}</main>}
 <Scrolltotop />
 <Footer />
     </div>

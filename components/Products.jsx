@@ -9,11 +9,7 @@ export default function Products() {
     { name: "ytd" },
     { name: "ytd" },
     { name: "ytd" },
-    { name: "ytd" },
-    { name: "ytd" },
-    { name: "ytd" },
-    { name: "ytd" },
-    { name: "ytd" },
+    { name: "ytd" }
   ];
   return (
     <div>

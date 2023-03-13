@@ -18,7 +18,7 @@ export default function Blog(props) {
 
   return (
     <div>
-      <div className=" mx-auto lg:w-2/4 sm:w-2/3">
+      <div className=" mx-auto lg:w-2/4 sm:w-2/3 px-8">
       <Slider {...slickSetting} className="mx-auto w-full">
         {sorted.slice(0, 3).map((post) => {
           return <BlogPostSliderCard post={post} key={post.attributes.date} />;
