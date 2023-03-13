@@ -6,7 +6,7 @@ thumbnail: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.b
 ---
 ## T﻿op chrome extension to use in 2022-2023
 
-1. Grammarly - Grammarly is a writing assistant that checks for grammar and spelling mistakes in real-time as you type.
+1. Grammarly - Grammarly is a writing assistant that checks for grammar and spelling mistakes in real-time as you type..
 
 ![momentum](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.iinOroCBTCP1ibxBz4QAiQHaCT%26pid%3DApi&f=1&ipt=f234583ddeacb458157c9fbe908c5c73aa3836c2b736dc9bab79706935e78c55&ipo=images "momentum")
 
