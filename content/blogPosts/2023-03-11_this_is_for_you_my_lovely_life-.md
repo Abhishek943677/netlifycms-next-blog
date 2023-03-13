@@ -2,7 +2,7 @@
 title: this is for you my lovely life.
 read-minute: 2
 date: 2023-03-11T17:42:26.929Z
-thumbnail: /img/1667136218790.jpg
+thumbnail: https://images.unsplash.com/photo-1515890435782-59a5bb6ec191?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bG92ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60
 ---
 <!--StartFragment-->
 
