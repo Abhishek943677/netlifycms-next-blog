@@ -37,7 +37,7 @@ export default function Blogpostcard({ post }) {
             const shareData = {
               title: "Blog.solity.fun",
               text: `${post.attributes.title}`,
-              url: `https://blog.solity.fun/blog/post/${post.slug}`,
+              url: `https://solity.fun/blog/post/${post.slug}`,
             };
             try {
               await navigator.share(shareData);

@@ -8,15 +8,23 @@ const SearchResultDropdown = ({ list }) => {
         id="dropmenu"
       >
         {list.map(({ attributes, slug }) => {
-          if (window.location.pathname.includes("blog/post")) {
+          if (window.location.pathname.includes("blog/post/")) {
             return (
               <div className="static" key={attributes.date}>
-                <Link href={slug} key={attributes.title}>
+                <Link href={`${slug}`} key={attributes.title}>
                   <p className=" p-2 shadow-slate-400 m-1 bg-white rounded" >{attributes.title.slice(0,60)}</p>
                 </Link>
               </div>
             );
-          } else {
+          } else if(window.location.pathname.includes("blog/")){
+            return (
+              <div className="static" key={attributes.date}>
+                <Link href={`post/${slug}`} key={attributes.title}>
+                  <p className=" p-2 m-1 shadow-slate-400 rounded bg-white">{attributes.title.slice(0,60)}</p>
+                </Link>
+              </div>
+            );
+          }else{
             return (
               <div className="static" key={attributes.date}>
                 <Link href={`blog/post/${slug}`} key={attributes.title}>
