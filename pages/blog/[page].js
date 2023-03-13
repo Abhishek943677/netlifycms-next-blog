@@ -75,8 +75,8 @@ export async function getStaticProps(context) {
     // console.log(UserBlogPage);
     const sorted = postsList.sort(
       (a, b) =>
-        a.attributes.date.slice(0, 10).replaceAll("-", "") -
-        b.attributes.date.slice(0, 10).replaceAll("-", "")
+        b.attributes.date.slice(0, 10).replaceAll("-", "") -
+        a.attributes.date.slice(0, 10).replaceAll("-", "")
     );
 
      noOfPageForPagination = Math.floor(sorted.length / 9 + 1);
